@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Alert</title>
+</head>
+
+<body>
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Order Alert</h3>
+
+                <div class="items">
+                    <ul class="list-group mb-3 z-depth-1 ">
+                        {% for order_item in order_items %}
+                        <li class="list-group-item d-flex justify-content-between lh-condensed ">
+                            <div>
+
+                                <h4 class="my-0 ">{{order_item.order_item_product_id.product_name}}</h4>
+                                <h6>{{order_item.order_item_product_id.product_description}}</h6>
+                            </div>
+                            <span><h6>KSh {{order_item.order_item_total_cost}}</h6></span>
+                        </li>{% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

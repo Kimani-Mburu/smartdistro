@@ -1,0 +1,98 @@
+{% extends 'base.html' %} {% load static %}{% block head %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+<link rel="stylesheet" href="{%  static 'css/product.css' %}">{% endblock %} {% load crispy_forms_tags %}{% block main %}
+<div class="super_container">
+    <header class="header" style="display: none;">
+        <div class="header_main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+                        <div class="header_search">
+                            <div class="header_search_content">
+                                <div class="header_search_form_container">
+                                    <form action="#" class="header_search_form clearfix">
+                                        <div class="custom_dropdown">
+                                            <div class="custom_dropdown_list"> <span class="custom_dropdown_placeholder clc">All Categories</span> <i class="fas fa-chevron-down"></i>
+                                                <ul class="custom_list clc">
+                                                    <li><a class="clc" href="#">All Categories</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="single_product">
+        <div class="container-fluid" style=" background-color: #fff; padding: 11px;">
+            <div class="row">
+                <div class="col-lg-2 order-lg-1 order-2">
+                    <ul class="image_list">
+                        <li data-image="https://i.imgur.com/21EYMGD.jpg"><img src="{{ product.product_other_image1.url }}" alt=""></li>
+                        <li data-image="https://i.imgur.com/DPWSNWd.jpg"><img src="{{ product.product_other_image.url }}" alt=""></li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-4 order-lg-2 order-1">
+                    <div class="image_selected"><img src="{{ product.product_images.url }}" alt=""></div>
+                </div>
+                <div class="col-lg-6 order-3">
+                    <div class="product_description">
+                        <nav>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Products</a></li>
+                                <li class="breadcrumb-item active">{{product.category}}</li>
+                            </ol>
+                        </nav>
+                        <div class="product_name">{{product.product_name}}</div>
+                        <span class="product_price">KSh {{product.product_unit_price}} @{{product.product_unit}}</span>
+                        <hr class="singleline">
+                        <div> <span class="product_info">{{product.product_description}}</span> </div>
+                        <div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <span>Product Location: {{product.product_location}}</span>
+                                </div>
+                                <div class="col-md-7"> </div>
+                            </div>
+                            <div class="row" style="margin-top: 15px;">
+                                <div class="col-xs-6" style="margin-left: 15px;">
+                                    <h5>Additional Information</h5>
+                                    <p>Available from {{product.product_availability_wef_date}}</p>
+                                    <br>
+                                    <p>Till: {{product.product_availability_wet_date}}</p>
+                                </div>
+                            </div>
+                            <hr class="singleline">
+                            <div class="order_info d-flex flex-row">
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-xs-6">
+                                    <form action="{% url 'supply:cart_add' product.id %}" method="post">
+                                        {% csrf_token %}{{CartAddProductForm|crispy}}
+                                        <hr>
+                                        <button type="submit" class="btn btn-primary shop-button">Order Item</button>
+                                    </form>
+                                    <!-- <button type="button" >
+                                        <a href="{% url 'supply:cart_add' object.id%}">Order Item</a>
+                                    </button>
+                                    <button type="button" class="btn btn-success shop-button">Buy Now</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>{% endblock %}

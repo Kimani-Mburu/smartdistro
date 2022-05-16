@@ -1,0 +1,69 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<meta name="description" content="{{ category_description }}"> {% endblock head %} {% block title %} {{category_name}}{% endblock title %}{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="categories">
+                <ul id="cat-list">
+                    <li>
+                        <a href="{% url 'supply:all-categories' %}">All Categories</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'supply:category' 'fruits' %}">Fruits</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'supply:category' 'vegetables' %}">Vegetables</a> </li>
+                    <li>
+                        <a href="{% url 'supply:category' 'potatoes' %}">Potatoes</a> </li>
+                    <li>
+                        <a href="{% url 'supply:category' 'legumes' %}">Legumes</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'supply:category' 'cereals' %}">Cereals</a></li>
+                    <li>
+                        <a href="{% url 'supply:category' 'dairy-products' %}"></a> Dairy products</li>
+                </ul>
+            </div>
+        </div>
+
+        <br>
+        <h2>{{category_name}}</h2>
+
+        <div class="col-md-12" style="display: flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between">
+
+            {% for product in category_product_list %}
+            <div class="card">
+                <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
+                    <img src="{{ product.product_images.url }}" class="img-p" />
+                    <a href="#!">
+                        <div class="hover-overlay">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <a href="" class="text-reset">
+                        <h4 class="card-title mb-3 text-decoration-none">{{ product.product_name }}
+                        </h4>
+                    </a>
+                    <a href="" class="text-reset">
+                        <h6>{{product.product_category}}
+                        </h6>
+                    </a>
+                    <h6 class="mb-3">Ksh {{product.product_unit_price}} @{{product.product_unit}}</h6>
+                    <button type="button" class="btn btn-primary btn-sm mr-1"><i class="fas fa-shopping-cart pr-2"></i>Add to cart</button>
+                    <button type="button" class="btn btn-light btn-sm"><i class="fas fa-info-circle pr-2"></i>Details</button>
+                    <!-- <div class="d-flex flex-column mt-4">
+                        <button class="btn btn-primary " type="button"><a href="{{ product.get_absolute_url }}" style="text-decoration: none;">Details</a></button>
+                        <button class="btn btn-outline-primary btn-sm mt-2" type="button">
+                                  Add to order<i class=" fa fa-shopping-cart " aria-hidden="true "></i>
+                                </button>
+                    </div> -->
+
+                </div><br>
+            </div>{% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock main %}

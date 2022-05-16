@@ -1,0 +1,111 @@
+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
+
+
+{% comment %} tables {% endcomment %}
+
+Login
+login_id
+login_username
+login_password
+login_rank
+
+farmer
+farmer_id (pk)
+farmer_login_id (fk)
+farmer_first_name
+farmer_last_name
+farmer_national_id
+farmer_phone_no
+farmer_email
+farmer_address
+
+
+
+Customer
+Customer_id (pk)
+Customer_login_id (fk)
+Customer_first_name
+Customer_last_name
+Customer_national_id
+Customer_phone_no
+Customer_email
+Customer_address
+Customer_account_type
+
+
+
+
+
+Product Category ***Products category
+category_id (pk)
+category_name
+category_desc
+
+Units
+Unit_id (pk)
+Unit_name
+Unit_desc
+
+Other_Charges
+Other_Charges_id (pk)
+Other_Charges_name
+Other_Charges_desc
+Other_Charges_rate
+
+
+Product
+product_id (pk)
+product_name
+product_description
+product_category_category_id (fk)
+product_images
+product_Unit_id
+product_unit_price
+product_availability_wef_date
+product_availability_wet_date
+product_location
+product_farmer_id (fk)
+
+
+Order
+Order_id (pk)
+Order_login_id (fk)
+Order_date
+Order_reference_no
+Order_Customer_id
+Order_delivery_address
+
+Order_items
+Order_item_id (pk)
+Order_item_order_id
+Order_item__product_id
+Order_item_quantity
+Order_item__total_cost
+
+
+
+Order_Other_Charges
+Order_Other_Charges_id
+Order_Other_Charges_Order_id
+Order_Other_Order_Charges_id
+Order_Other_Order_Charges_total_price
+
+
+
+Purchase_Order
+Purchase_order_id (pk)
+Purchase_order_Order_id
+Purchase_order_Other_charges
+Purchase_order_date
+Purchase_order_total_value
+Purchase_order_status
+
+
+
+
+Payment
+payment_id (pk)
+payment_mode
+payment_total_price
+payment_ref
+payment_Order_Id

@@ -1,0 +1,120 @@
+<main>
+
+    <div class="container">
+
+        <!--Section: Block Content-->
+        <section class="my-5">
+
+            <div class="row">
+                <div class="col-md-5 mb-4 mb-md-0">
+
+                    <div class="view zoom z-depth-2 rounded">
+                        <img class="img-fluid" src="{{ product.images.url }}" style="height: 450px;width:500px;">
+                        <a href="#!">
+                            <div class="mask"></div>
+                        </a>
+                        <div class="other-images" style=" width: 170px;
+                        height: 100px;
+                        margin: 8px 5px 5px 5px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        -ms-flex-direction: column;
+                        flex-direction: column;
+                        justify-content: space-between;">
+                            <img src="{{ product.other_image.url }}" style="width: 200px;height:200px;margin-right: 25px;
+                            border-radius: 7px;">
+                            <img src="{{ product.other_image1.url }}" style="width: 200px;height:200px;margin-right: 25px;
+                            border-radius: 7px;">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-7" style="margin-left: 30px;">
+
+                    <h3>{{product.name}}</h3>
+                    <p class="mb-2 text-muted text-uppercase small">{{product.category}}</p>
+                    <p><span class="mr-1"><strong>Ksh {{product.unit_price}} @{{product.unit}}</strong></span></p>
+                    <p class="pt-1">{{product.description}}</p>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-borderless mb-0">
+                            <tbody>
+                                <tr>
+                                    <th class="pl-0 w-25" scope="row"><strong>Country</strong></th>
+                                    <td>Kenya</td>
+                                </tr>
+                                <tr>
+                                    <th class="pl-0 w-25" scope="row"><strong>Location</strong></th>
+                                    <td>{{product.location}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr>
+                    <div class="table-responsive mb-2">
+                        <table class="table table-sm table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="pl-0 pb-0 w-25">Quantity in {{product.unit}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="pl-0">
+                                        <div class="def-number-input number-input safari_only mb-0">
+                                            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                                            <input class="quantity" min="0" name="quantity" value="1" type="number">
+                                            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-md mr-1 mb-2"><a href="{% url 'supply:home' %}" style="text-decoration: none;">Continue Shopping</a></button>
+                    <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i
+                class="fas fa-shopping-cart pr-2"></i>Order Item</button>
+                </div>
+            </div>
+
+        </section>
+        <!--Section: Block Content-->
+        <!-- Classic tabs -->
+
+        <div class="classic-tabs border rounded px-4 pt-1" style="margin-bottom: 20px;">
+
+            <ul class="nav tabs-primary nav-justified" id="advancedTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active show" id="description-tab" data-toggle="tab" href="#description" role="tabpanel" aria-controls="description" aria-selected="true">Description</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="advancedTabContent">
+                <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                    <h5><b> Description</b></h5>
+                    <p class="small text-muted text-uppercase mb-2">{{product.name}}</p>
+                    <p class="pt-1">{{product.description}}</p>
+                </div>
+                <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
+                    <h5>Additional Information</h5>
+                    <p>Available from {{product.availability_wef_date}}</p>
+                    <br>
+                    <p>Till: {{product.availability_wet_date}}</p>
+                </div>
+                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                    <h5><span></span> review for <span>{{product.name}}</span></h5>
+                    {% ratings object %}
+                </div>
+            </div>
+
+        </div>
+        <!-- Classic tabs -->
+        <!--Section: Block Content-->
+
+
+    </div>
+
+</main>

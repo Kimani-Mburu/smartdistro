@@ -1,2 +1,2 @@
-# smartdistro
-eCommerce web app
+# Smart-Products-Distro
+A smart farm produce distribution platform

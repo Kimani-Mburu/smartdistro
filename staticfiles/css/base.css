@@ -1,0 +1,281 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'); */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+    font-size: medium;
+}
+
+.float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #1c3455;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+.my-float {
+    margin-top: 22px;
+}
+
+header {
+    background-color: #1c3455;
+}
+
+.main-nav {
+    height: 90px;
+}
+
+.input {
+    height: 20px;
+}
+
+.serch {
+    max-height: 50px;
+}
+
+.logo {
+    color: white;
+    line-height: 90px;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+.logo :hover {
+    text-decoration: none;
+    color: #6b717c;
+}
+
+.nav-links {
+    list-style: none;
+    float: right;
+    line-height: 90px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s linear 0s;
+}
+
+.nav-links li a:hover {
+    color: #7ebcb9;
+    padding-bottom: 7px;
+    border-bottom: 2px solid #7ebcb9;
+}
+
+li a.contact {
+    background-color: #3f5eb4;
+    padding: 9px 20px;
+    border-radius: 50px;
+    transition: all 0.3s linear 0s;
+}
+
+li a.contact:hover {
+    background-color: #a1abac;
+    color: white;
+    border-bottom: none;
+}
+
+.menu-btn {
+    color: white;
+    font-size: 25px;
+    float: right;
+    line-height: 90px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#isChecked {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .nav-links {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        background: #222831;
+        right: -100%;
+        transition: all 0.5s;
+    }
+    .nav-links li {
+        display: block;
+    }
+    .cat-list li {
+        display: inline-block;
+        list-style: none;
+    }
+    .menu-btn {
+        display: block;
+    }
+    #isChecked:checked~.nav-links {
+        right: 0;
+    }
+}
+
+@media (max-width: 786px) {
+    .logo {
+        margin-left: 15px;
+        font-size: 25px;
+    }
+    .menu-btn {
+        margin-right: 15px;
+        font-size: 25px;
+    }
+}
+
+.container-sm {
+    margin-right: 15px;
+    margin-left: 15px;
+    max-width: 1100px;
+}
+
+.categories {
+    display: flex;
+    padding: 2px;
+}
+
+#cat-list li {
+    display: inline-block;
+    list-style: none;
+    padding: 10px;
+    background-color: #4d5975;
+    padding: 9px 20px;
+    margin-bottom: 3px;
+    border-radius: 50px;
+    color: #fff;
+}
+
+#cat-list li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#cat-list li:hover {
+    background-color: #a1abac;
+    color: white;
+    border-bottom: none;
+}
+
+.search-filter {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0px 0px 5px;
+    padding: 4px;
+    /* border-right: solid #222831 1px; */
+}
+
+.container-inner {
+    display: flex;
+}
+
+.col-md-9 h3 {
+    color: #fff;
+}
+
+.col-md-9 {
+    color: #fff;
+}
+
+.btn-trade {
+    background-color: #4d5975;
+    margin-bottom: 10px;
+    padding: 9px 7px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-trade :hover {
+    background-color: #6b717c;
+    box-shadow: #a1abac;
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+    .card-1 {
+        width: 100px;
+        height: auto;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+h2 {
+    color: #000;
+    font-size: 26px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    margin: 30px 0 60px;
+}
+
+h2::after {
+    content: "";
+    width: 100px;
+    position: absolute;
+    margin: 0 auto;
+    height: 4px;
+    border-radius: 1px;
+    left: 0;
+    right: 0;
+    bottom: -20px;
+}
+
+.card-1 {
+    width: 200px;
+    max-height: 350px;
+    padding: 2px;
+    margin-bottom: 5px;
+    position: relative;
+    box-shadow: 5px 5px 5px grey;
+}
+
+.card-1h6 {
+    text-align: center;
+}
+
+.card-body a {
+    text-align: center;
+}
+
+.btn a {
+    color: #fff;
+}
+
+.img-p {
+    height: 150px;
+    width: 100%;
+}
+
+.product-form {
+    position: inherit;
+    left: 100px;
+    right: 100px;
+}

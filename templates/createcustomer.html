@@ -1,0 +1,14 @@
+{% extends 'base.html' %}{% load static %} {% load crispy_forms_tags %} {% block head %}
+<title>Customer Information</title>{% endblock head %}{% block main %}
+<section>
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center my-4">
+            <h3><strong>Customer Information</strong></h3>
+            <div class="col-md-8">
+                <form action="{% url 'user-information:create-customer' %}" method="post">
+                    {% csrf_token %} {{form|crispy}} <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>{% endblock main %}

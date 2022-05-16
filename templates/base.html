@@ -1,0 +1,78 @@
+<!DOCTYPE html> {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}"> {% block head %} {% endblock%}
+    <title> {% block title %} Smart Produce Distro {% endblock title %}</title>
+
+</head>
+
+<body>
+    <header>
+        <nav class="main-nav">
+            <input type="checkbox" id="isChecked" />
+            <label for="isChecked" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="{% url 'supply:home' %}" class="logo">Smart Crop Distro</a>
+
+            <ul class="nav-links">
+                <li class="serch">
+                    <!-- <div class="input"><input type="text" placeholder="search products">
+                        <a href="#" class="search-icon"> <i class="fa fa-search"></i> </a>
+                    </div> -->
+                </li>
+                <li><a href="{% url 'supply:home' %}">Home</a></li>
+                <li><a href="{% url 'UserInformation:create-farmer' %}">Add Products</a></li>
+                {% if request.user %} {% if request.user.is_authenticated %}
+                <li>
+                    <a href="{% url 'supply:cart_detail' %}">My Orders <span class="badge">{{item_count}}</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'UserInformation:profile' %}">My Profile</a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}" class="contact">logout</a>
+                </li>{% else %}
+                <li> <a href="{% url 'login' %} " class="contact">login</a></li>
+                <li>
+                    <a href="{% url 'signup' %}" class="contact">signup</a>
+                </li>
+            </ul>{% endif %} {% endif %}
+        </nav>
+    </header>
+    {% comment %} MESSAGES {% endcomment %}
+
+    <div class="messages" style="background-color: green;" id="messages">
+        {% if messages %} {% for message in messages %}
+        <div class="alert alert-success alter-dismissable fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+        </div>
+        {% endfor %} {% endif %}
+    </div>
+    {% block main %} {% endblock %} {% include "footer.html" %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>
